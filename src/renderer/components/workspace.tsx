@@ -24,7 +24,7 @@ import DragAndDropContainer from './DragAndDropContainer';
 import EntryModalHelper from '../helper/entry/entryModalHelper';
 import ipcRendererHelper from '../helper/ipcRendererHelper';
 
-interface IProps extends IReduxDispatch, IReduxState { }
+interface IProps extends IReduxDispatch, IReduxState {}
 
 class Workspace extends Component<IProps> {
     private lastHwName?: string;
@@ -244,7 +244,7 @@ class Workspace extends Component<IProps> {
                 console.log(Constants.sep);
                 const savePath = `${dirPath}${Constants.sep}`;
                 await ipcRendererHelper.captureBlockImage(images, savePath);
-            })
+            });
         } catch (err) {
             console.error(err);
         }
@@ -326,13 +326,13 @@ class Workspace extends Component<IProps> {
         if (hw.programConnected && hw.hwModule) {
             const hwName = hw.hwModule.name;
             if (_includes(EntryStatic.hwMiniSupportList, hwName)) {
-                hwCategoryList.forEach(function (categoryName: string) {
+                hwCategoryList.forEach(function(categoryName: string) {
                     blockMenu.unbanCategory(categoryName);
                 });
                 blockMenu.banCategory('arduino');
                 blockMenu.banCategory('hw_robot');
             } else {
-                hwCategoryList.forEach(function (categoryName: string) {
+                hwCategoryList.forEach(function(categoryName: string) {
                     blockMenu.banCategory(categoryName);
                 });
                 blockMenu.banCategory('hw_robot');
@@ -340,7 +340,7 @@ class Workspace extends Component<IProps> {
             }
             this.lastHwName = hwName;
         } else {
-            hwCategoryList.forEach(function (categoryName: string) {
+            hwCategoryList.forEach(function(categoryName: string) {
                 blockMenu.banCategory(categoryName);
             });
             blockMenu.banCategory('arduino');

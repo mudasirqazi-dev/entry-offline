@@ -41,12 +41,16 @@ export default class {
         };
 
         if (language === 'ko') {
-            title = `엔트리 v${title}`;
+            // MQ-CR1
+            // title = `엔트리 v${title}`;
+            title = `RoboThink RoCode`;
             crashedMsg.title = '오류 발생';
             crashedMsg.content =
                 '프로그램이 예기치 못하게 종료되었습니다. 작업 중인 파일을 저장합니다.';
         } else {
-            title = `Entry v${title}`;
+            // MQ-CR1
+            // title = `Entry v${title}`;
+            title = `RoboThink RoCode`;
             crashedMsg.title = 'Error occurs';
             crashedMsg.content =
                 'This program has been shut down unexpectedly. Save the file you were working on.';
