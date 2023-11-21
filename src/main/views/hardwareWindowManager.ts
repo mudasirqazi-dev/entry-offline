@@ -36,12 +36,13 @@ export default class HardwareWindowManager {
     }
 
     private createHardwareWindow() {
-        let title;
-        if (app.getLocale() === 'ko') {
-            title = '엔트리 하드웨어';
-        } else {
-            title = 'Entry HardWare';
-        }
+        // MQ-CR1
+        let title = 'RoboThink Hardware';
+        // if (app.getLocale() === 'ko') {
+        //     title = '엔트리 하드웨어';
+        // } else {
+        //     title = 'Entry HardWare';
+        // }
 
         const remoteMain = require('@electron/remote/main');
         this.hardwareWindow = new BrowserWindow({
@@ -89,6 +90,7 @@ export default class HardwareWindowManager {
                 'index.html'
             )}`
         );
+
         this.hardwareWindow.on('closed', this.closeHardwareWindow.bind(this));
         this._bindHardwareCloseEvent();
 
