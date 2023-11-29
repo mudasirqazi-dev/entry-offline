@@ -267,12 +267,12 @@ class Header extends Component<IProps, IState> {
                         />
                     </div>
                 </div>
-                {!isValidProduct && (
+                {/* MQ-CR1 *}
+                {/* {!isValidProduct && (
                     <div className="invalidate_check_box">
                         <span>이 프로그램은 엔트리 공식 빌드가 아닙니다.</span>
                     </div>
-                )}
-
+                )} */}
                 <div className={'group_box'}>
                     <div className={'group_inner'}>
                         {mode === 'workspace' && (
