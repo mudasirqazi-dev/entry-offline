@@ -62,7 +62,7 @@ class CommonUtils {
         const filename = entryObject.filename;
         const extension = CommonUtils.sanitizeExtension(
             entryObject.ext || entryObject.extension,
-            defaultExtension,
+            defaultExtension
         );
 
         return `${filename}${extension}`;

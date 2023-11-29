@@ -410,7 +410,7 @@ class Workspace extends Component<IProps> {
             RendererUtils.showSaveDialog(
                 {
                     defaultPath: `${targetPath}/${projectName}`,
-                    filters: [{ name: 'Entry File', extensions: ['ent'] }],
+                    filters: [{ name: 'RoCode File', extensions: ['rocode'] }], //MQ-CR1
                 },
                 saveFunction
             );
@@ -431,7 +431,7 @@ class Workspace extends Component<IProps> {
                         RendererUtils.showOpenDialog({
                             /*defaultPath: storage.getItem('defaultPath') || '',*/
                             properties: ['openFile'],
-                            filters: [{ name: 'Entry File', extensions: ['ent'] }],
+                            filters: [{ name: 'RoCode File', extensions: ['rocode'] }], //MQ-CR1
                         }).then(({ filePaths }) => {
                             resolve(filePaths[0]);
                         });
@@ -608,7 +608,8 @@ class Workspace extends Component<IProps> {
                 <DragAndDropContainer
                     text={RendererUtils.getLang('Workspace.ent_drag_and_drop')}
                     onDropFile={async (filePath) => {
-                        if (filePath.endsWith('.ent')) {
+                        // MQ-CR1
+                        if (filePath.endsWith('.rocode')) {
                             await this._loadProjectFromFile(filePath);
                         } else {
                             EntryModalHelper.getAlertModal(

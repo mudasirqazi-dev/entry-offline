@@ -7,12 +7,10 @@ const logger = createLogger('ParseCommandLine');
 
 // 입력받을 수 있는 값들
 const properties: {
-    flag: [keyof CommandLineFlags, string][],
-    pair: [keyof CommandLinePairs, any][],
+    flag: [keyof CommandLineFlags, string][];
+    pair: [keyof CommandLinePairs, any][];
 } = {
-    flag: [
-        ['debug', 'd'],
-    ],
+    flag: [['debug', 'd']],
     pair: [
         ['version', 'v'],
         ['file', 'f'],
@@ -57,7 +55,7 @@ function parsePair(key: string, value: string): boolean | void {
 }
 
 const _isValidProjectFilePath = function(filePath: string) {
-    return path.isAbsolute(filePath) && path.extname(filePath) === '.ent';
+    return path.isAbsolute(filePath) && path.extname(filePath) === '.rocode'; //MQ-CR1
 };
 
 export default (argv: string[]): Readonly<CommandLineOptions> => {
@@ -74,8 +72,13 @@ export default (argv: string[]): Readonly<CommandLineOptions> => {
 
     const result = merge(flags, pairs);
 
-    logger.info(reduce(toPairs(result), (str, [key, value]) =>
-        `${str}\n${key}: ${value}`, 'commandLine configurations applied'));
+    logger.info(
+        reduce(
+            toPairs(result),
+            (str, [key, value]) => `${str}\n${key}: ${value}`,
+            'commandLine configurations applied'
+        )
+    );
 
     return result;
 };

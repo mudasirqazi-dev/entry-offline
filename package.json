@@ -1,9 +1,9 @@
 {
     "private": true,
-    "productName": "Entry",
-    "name": "entry",
+    "productName": "RoCode",
+    "name": "rocode",
     "version": "2.1.8",
-    "description": "Entry for offline",
+    "description": "RoCode for offline",
     "main": "src/main_build/main.bundle.js",
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack && electron . --debug",
@@ -25,8 +25,8 @@
         "postinstall": "yarn run rebuild && yarn run webpack:dev"
     },
     "keywords": [
-        "entry",
-        "entry-offline"
+        "rocode",
+        "rocode-offline"
     ],
     "author": "entrylabs",
     "license": "MIT",

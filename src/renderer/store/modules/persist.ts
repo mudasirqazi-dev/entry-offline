@@ -21,12 +21,15 @@ export interface IPersistState {
 }
 
 const defaultState: IPersistState = {
-    lang: 'ko',
+    lang: 'en', // MQ-CR1
     mode: undefined,
 };
 
 // reducer
-export default handleActions<IPersistState>({
-    [WS_MODE]: (state, action) => ({ ...state, mode: action.payload.mode }),
-    [CHANGE_LANGUAGE]: (state, action) => ({ ...state, lang: action.payload.lang }),
-}, defaultState);
+export default handleActions<IPersistState>(
+    {
+        [WS_MODE]: (state, action) => ({ ...state, mode: action.payload.mode }),
+        [CHANGE_LANGUAGE]: (state, action) => ({ ...state, lang: action.payload.lang }),
+    },
+    defaultState
+);
